@@ -1,0 +1,54 @@
+---
+name: CDK Diff
+
+on:
+  pull_request:
+    types:
+      - synchronize
+      - ready_for_review
+
+permissions:
+  pull-requests: write
+  id-token: write
+
+jobs:
+  cdk-diff:
+    name: Run CDK Diff
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set Up Environment
+        uses: ./.github/actions/setup
+
+      - name: Install Python Dependencies with Poetry
+        shell: bash
+        run: poetry install
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ vars.ROLE_TO_ASSUME }}
+          role-session-name: GitHubActions-${{ github.event.repository.name }}
+          aws-region: ${{ vars.AWS_REGION }}
+
+      - name: Generate CDK Diff
+        id: run-cdk-diff
+        shell: bash
+        run: poetry run cdk diff CiCd-sandbox &> diff.txt
+
+      - name: Edit PR Comment
+        id: edit-pr-comment
+        continue-on-error: true
+        run: |
+          gh pr comment ${{ github.event.pull_request.number }} \
+            --body-file "diff.txt" \
+            --edit-last
+
+      - name: Create PR Comment
+        if: steps.edit-pr-comment.outcome == 'failure'
+        run: |
+            gh pr comment ${{ github.event.pull_request.number }} \
+            --body-file "diff.txt"

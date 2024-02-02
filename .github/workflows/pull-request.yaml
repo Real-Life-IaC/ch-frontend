@@ -1,0 +1,28 @@
+---
+name: Draft Pull Request
+
+on:
+  push:
+    branches-ignore:
+      - main
+
+permissions:
+  pull-requests: write
+
+jobs:
+  draft-pull-request:
+    name: Draft Pull Request
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Create Pull Request
+        continue-on-error: true
+        run: |
+          gh pr create \
+            --title "Merge ${{ github.ref_name }}"  \
+            --body-file "./.github/templates/pr_template.md" \
+            --base main \
+            --draft

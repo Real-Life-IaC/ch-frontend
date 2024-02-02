@@ -1,0 +1,70 @@
+---
+name: Status Checks
+
+on:
+  push:
+    branches-ignore:
+      - main
+
+jobs:
+  test:
+    name: Test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set Up Environment
+        uses: ./.github/actions/setup
+
+      - name: Install Test Dependencies
+        shell: bash
+        run: poetry install --with test
+
+      - name: Pytest
+        shell: bash
+        run: poetry run python -m pytest
+
+      - name: Coverage
+        shell: bash
+        run: poetry run coverage lcov
+
+  lint:
+    name: Lint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set Up Environment
+        uses: ./.github/actions/setup
+
+      - name: Install Lint Dependencies
+        shell: bash
+        run: poetry install --with lint
+
+      - name: Lint
+        shell: bash
+        run: poetry run pre-commit run --all-files
+
+  checkov:
+    name: Checkov
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set Up Environment
+        uses: ./.github/actions/setup
+
+      - name: Install Checkov Dependencies
+        shell: bash
+        run: poetry install --with checkov
+
+      - name: Synthezise CDK templates
+        shell: bash
+        run: poetry run cdk synth
+
+      - name: Checkov
+        shell: bash
+        run: |
+          poetry run checkov \
+            --config-file .checkov \
+            --baseline .checkov.baseline

@@ -1,0 +1,38 @@
+---
+name: Set Up Environment
+description: Install packages and dependencies for CDK deployment
+
+inputs:
+  cdk_version:
+    description: AWS CDK version
+    required: false
+    default: latest
+
+  python_version:
+    description: Python version
+    required: false
+    default: '3.11'
+
+  poetry_version:
+    description: Poetry version
+    required: false
+    default: 1.7.1
+
+runs:
+  using: composite
+  steps:
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: ${{ inputs.python_version }}
+
+    - name: Install Poetry
+      uses: snok/install-poetry@v1
+      with:
+        virtualenvs-create: true
+        virtualenvs-in-project: true
+        version: ${{ inputs.poetry_version }}
+
+    - name: Install AWS CDK
+      shell: bash
+      run: npm install -g aws-cdk@${{ inputs.cdk_version }}

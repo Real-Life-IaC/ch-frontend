@@ -1,0 +1,37 @@
+---
+name: Deploy Stack
+description: Deploy the CDK stack to AWS
+
+inputs:
+  role-to-assume:
+    description: Role ARN to be assumed
+    required: true
+
+  aws-region:
+    description: AWS region to deploy
+    required: true
+
+  stack-name:
+    description: Name of the stack to deploy
+    required: true
+
+runs:
+  using: composite
+  steps:
+    - name: Set Up Environment
+      uses: ./.github/actions/setup
+
+    - name: Install Python Dependencies with Poetry
+      shell: bash
+      run: poetry install
+
+    - name: Configure AWS credentials
+      uses: aws-actions/configure-aws-credentials@v4
+      with:
+        role-to-assume: ${{ inputs.role-to-assume }}
+        role-session-name: GitHubActions-${{ github.event.repository.name }}
+        aws-region: ${{ inputs.aws-region }}
+
+    - name: CDK Deploy
+      shell: bash
+      run: poetry run cdk deploy ${{ inputs.stack-name }} --force
