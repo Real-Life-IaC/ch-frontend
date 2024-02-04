@@ -8,6 +8,10 @@
     "python.analysis.diagnosticSeverityOverrides": {
         "reportGeneralTypeIssues": "information"
     },
+    "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.formatOnSave": true
+    },
     "files.exclude": {
         "**/__pycache__": true,
         "**/.pytest_cache": true,

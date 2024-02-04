@@ -1,42 +1,8 @@
 {
-  "availability-zones:account=637423243766:region=us-east-1": [
-    "us-east-1a",
-    "us-east-1b",
-    "us-east-1c",
-    "us-east-1d",
-    "us-east-1e",
-    "us-east-1f"
-  ],
-  "availability-zones:account=905418189086:region=us-east-1": [
-    "us-east-1a",
-    "us-east-1b",
-    "us-east-1c",
-    "us-east-1d",
-    "us-east-1e",
-    "us-east-1f"
-  ],
-  "availability-zones:account=730335548799:region=us-east-1": [
-    "us-east-1a",
-    "us-east-1b",
-    "us-east-1c",
-    "us-east-1d",
-    "us-east-1e",
-    "us-east-1f"
-  ],
-  "availability-zones:account=767397808306:region=us-east-1": [
-    "us-east-1a",
-    "us-east-1b",
-    "us-east-1c",
-    "us-east-1d",
-    "us-east-1e",
-    "us-east-1f"
-  ],
-  "availability-zones:account=267631547124:region=us-east-1": [
-    "us-east-1a",
-    "us-east-1b",
-    "us-east-1c",
-    "us-east-1d",
-    "us-east-1e",
-    "us-east-1f"
-  ]
+  "ssm:account=637423243766:parameterName=/platform/access-logs/bucket/arn:region=us-east-1": "arn:aws:s3:::platform-sandbox-accesslogsbucketcd784a59-rh6daiz8vj7q",
+  "ssm:account=905418189086:parameterName=/platform/access-logs/bucket/arn:region=us-east-1": "arn:aws:s3:::platform-staging-accesslogsbucketcd784a59-hjsv6z1o3fvu",
+  "ssm:account=730335548799:parameterName=/platform/access-logs/bucket/arn:region=us-east-1": "arn:aws:s3:::platform-production-accesslogsbucketcd784a59-nrkhrhhle1oe",
+  "ssm:account=637423243766:parameterName=/platform/dns/real-life-iac.com/private-hosted-zone/name:region=us-east-1": "sandbox.real-life-iac.com",
+  "ssm:account=905418189086:parameterName=/platform/dns/real-life-iac.com/private-hosted-zone/name:region=us-east-1": "staging.real-life-iac.com",
+  "ssm:account=730335548799:parameterName=/platform/dns/real-life-iac.com/public-hosted-zone/name:region=us-east-1": "real-life-iac.com"
 }

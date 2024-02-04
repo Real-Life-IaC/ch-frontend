@@ -1,6 +1,8 @@
 import aws_cdk as cdk
 
 from constructs import Construct
+from infra.constructs.b1.static_site import HostedZoneType
+from infra.constructs.b2.real_life_iac import B2StaticSite
 
 
 class FrontendStack(cdk.Stack):
@@ -10,9 +12,16 @@ class FrontendStack(cdk.Stack):
         self,
         scope: Construct,
         id: str,
+        hosted_zone_type: HostedZoneType,
         **kwargs,
     ) -> None:
         super().__init__(scope, id, **kwargs)
+
+        B2StaticSite(
+            scope=self,
+            id="RealLifeIac",
+            hosted_zone_type=hosted_zone_type,
+        )
 
         # Add tags to everything in this stack
         cdk.Tags.of(self).add(key="owner", value="Frontend")
