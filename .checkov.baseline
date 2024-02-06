@@ -1,3 +1,61 @@
 {
-    "failed_checks": []
+    "failed_checks": [
+        {
+            "file": "/Frontend-production.template.json",
+            "findings": [
+                {
+                    "resource": "AWS::IAM::Policy.CustomCDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756CServiceRoleDefaultPolicy88902FDF",
+                    "check_ids": [
+                        "CKV_AWS_111"
+                    ]
+                },
+                {
+                    "resource": "AWS::Lambda::Function.CustomCDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C81C01536",
+                    "check_ids": [
+                        "CKV_AWS_115",
+                        "CKV_AWS_117",
+                        "CKV_AWS_173"
+                    ]
+                }
+            ]
+        },
+        {
+            "file": "/Frontend-sandbox.template.json",
+            "findings": [
+                {
+                    "resource": "AWS::IAM::Policy.CustomCDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756CServiceRoleDefaultPolicy88902FDF",
+                    "check_ids": [
+                        "CKV_AWS_111"
+                    ]
+                },
+                {
+                    "resource": "AWS::Lambda::Function.CustomCDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C81C01536",
+                    "check_ids": [
+                        "CKV_AWS_115",
+                        "CKV_AWS_117",
+                        "CKV_AWS_173"
+                    ]
+                }
+            ]
+        },
+        {
+            "file": "/Frontend-staging.template.json",
+            "findings": [
+                {
+                    "resource": "AWS::IAM::Policy.CustomCDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756CServiceRoleDefaultPolicy88902FDF",
+                    "check_ids": [
+                        "CKV_AWS_111"
+                    ]
+                },
+                {
+                    "resource": "AWS::Lambda::Function.CustomCDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C81C01536",
+                    "check_ids": [
+                        "CKV_AWS_115",
+                        "CKV_AWS_117",
+                        "CKV_AWS_173"
+                    ]
+                }
+            ]
+        }
+    ]
 }
