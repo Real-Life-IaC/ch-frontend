@@ -31,7 +31,7 @@ jobs:
         with:
           role-to-assume: ${{ vars.ROLE_TO_ASSUME }}
           aws-region: ${{ vars.AWS_REGION }}
-          stack-name: CiCd-sandbox
+          stack-name: Frontend-sandbox
 
   deploy-staging:
     if: github.ref_name == 'main'
@@ -47,7 +47,7 @@ jobs:
         with:
           role-to-assume: ${{ vars.ROLE_TO_ASSUME }}
           aws-region: ${{ vars.AWS_REGION }}
-          stack-name: CiCd-staging
+          stack-name: Frontend-staging
 
   deploy-production:
     if: github.ref_name == 'main'
@@ -66,4 +66,4 @@ jobs:
         with:
           role-to-assume: ${{ vars.ROLE_TO_ASSUME }}
           aws-region: ${{ vars.AWS_REGION }}
-          stack-name: CiCd-production
+          stack-name: Frontend-production

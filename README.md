@@ -1,25 +1,47 @@
 # Chapter: Frontend Repo
 
-## Create the virtual environment and install dependencies
+## Infrastructure
+
+### Create the virtual environment and install dependencies
 
 ```bash
 make init
 ```
 
-## Activate the virtual environment
+### Activate the virtual environment
 
 ```bash
 source .venv/bin/activate
 ```
 
-## Run the tests
+### Run the tests
 
 ```bash
 make test
 ```
 
-## Help with Make recipes
+### Help with Make recipes
 
 ```bash
 make help
+```
+
+## Frontend
+
+### Install the dependencies
+
+```bash
+npm install
+```
+
+### Run the application in localhost
+
+```bash
+npm run dev
+```
+
+### Build the application
+
+```bash
+npm run build
 ```

@@ -58,6 +58,10 @@ jobs:
         shell: bash
         run: poetry install --with checkov
 
+      - name: Create an empty out directory
+        shell: bash
+        run: mkdir -p out
+
       - name: Synthezise CDK templates
         shell: bash
         run: poetry run cdk synth
