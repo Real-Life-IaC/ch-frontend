@@ -175,7 +175,10 @@ class B1StaticSite(Construct):
             id="Distribution",
             certificate=certificate,
             default_root_object=root_object,
-            domain_names=[domain_name, f"www.{domain_name}"],
+            domain_names=[
+                self.hosted_zone.zone_name,
+                f"www.{self.hosted_zone.zone_name}",
+            ],
             minimum_protocol_version=cloudfront.SecurityPolicyProtocol.TLS_V1_2_2021,
             error_responses=error_responses,
             enable_logging=True,
@@ -199,7 +202,7 @@ class B1StaticSite(Construct):
         route53.ARecord(
             scope=self,
             id="ARecord",
-            record_name=domain_name,
+            record_name=self.hosted_zone.zone_name,
             target=route53.RecordTarget.from_alias(
                 alias_target=targets.CloudFrontTarget(self.distribution)
             ),
@@ -209,8 +212,8 @@ class B1StaticSite(Construct):
         route53.CnameRecord(
             scope=self,
             id="CnameRecord",
-            domain_name=domain_name,
-            record_name=f"www.{domain_name}",
+            domain_name=self.hosted_zone.zone_name,
+            record_name=f"www.{self.hosted_zone.zone_name}",
             zone=self.hosted_zone,
         )
 
