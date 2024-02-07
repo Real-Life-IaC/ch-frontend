@@ -32,7 +32,6 @@ class Params(TypedDict):
     hosted_zone_type: NotRequired[HostedZoneType]
     root_object: NotRequired[str]
     error_responses: NotRequired[list[cloudfront.ErrorResponse]]
-    waf_web_acl_arn: NotRequired[str]
 
 
 class B1StaticSite(Construct):
@@ -64,7 +63,7 @@ class B1StaticSite(Construct):
         # -----------------
 
         # Import the hosted zone name and id from SSM
-        hosted_zone_name = ssm.StringParameter.value_from_lookup(
+        hosted_zone_name = ssm.StringParameter.value_for_string_parameter(
             scope=self,
             parameter_name=f"/platform/dns/{domain_name}/{hosted_zone_type}-hosted-zone/name",
         )
@@ -73,21 +72,18 @@ class B1StaticSite(Construct):
             parameter_name=f"/platform/dns/{domain_name}/{hosted_zone_type}-hosted-zone/id",
         )
 
-        # Use the default WAF Web ACL defined in platform if one is not provided
-        default_waf_web_acl_arn = (
-            ssm.StringParameter.value_for_string_parameter(
-                scope=self,
-                parameter_name="/firewall/cloudfront-web-acl/arn",
-            )
-        )
-        waf_web_acl_arn = kwargs.get(
-            "waf_web_acl_arn", default_waf_web_acl_arn
+        # Use the default WAF Web ACL defined in platform
+        waf_web_acl_arn = ssm.StringParameter.value_for_string_parameter(
+            scope=self,
+            parameter_name="/firewall/cloudfront-web-acl/arn",
         )
 
         # Get the access logs bucket ARN from SSM
-        access_logs_bucket_arn = ssm.StringParameter.value_from_lookup(
-            scope=self,
-            parameter_name="/platform/access-logs/bucket/arn",
+        access_logs_bucket_arn = (
+            ssm.StringParameter.value_for_string_parameter(
+                scope=self,
+                parameter_name="/platform/access-logs/bucket/arn",
+            )
         )
 
         # Get the certificate ARN from SSM
@@ -100,7 +96,7 @@ class B1StaticSite(Construct):
         # Instantiate existing constructs
         # -----------------
 
-        access_logs_bucket = s3.Bucket.from_bucket_attributes(
+        access_logs_bucket = s3.Bucket.from_bucket_arn(
             scope=scope,
             id="AccessLogsBucket",
             bucket_arn=access_logs_bucket_arn,
