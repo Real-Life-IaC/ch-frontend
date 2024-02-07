@@ -21,7 +21,7 @@ class B2StaticSite(Construct):
             domain_name="real-life-iac.com",
             hosted_zone_type=hosted_zone_type,
             root_object="index.html",
-            asset_paths=["./out"],
+            asset_path="./out",
             error_responses=[
                 cloudfront.ErrorResponse(
                     http_status=403,
