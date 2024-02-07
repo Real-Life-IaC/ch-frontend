@@ -28,13 +28,11 @@ class Params(TypedDict):
     """Parameters for the UtilStaticSite class."""
 
     domain_name: str
-    asset_paths: list[str]
+    asset_path: str
     hosted_zone_type: NotRequired[HostedZoneType]
     root_object: NotRequired[str]
     error_responses: NotRequired[list[cloudfront.ErrorResponse]]
-    auto_delete_objects: NotRequired[bool]
     waf_web_acl_arn: NotRequired[str]
-    prune: NotRequired[bool]
 
 
 class B1StaticSite(Construct):
@@ -53,19 +51,12 @@ class B1StaticSite(Construct):
         super().__init__(scope, id)
 
         # Read the kwargs
-        asset_paths = kwargs.get("asset_paths")
+        asset_path = kwargs.get("asset_path")
         domain_name = kwargs.get("domain_name")
         root_object = kwargs.get("root_object", "index.html")
         error_responses = kwargs.get("error_responses", [])
         hosted_zone_type = kwargs.get(
             "hosted_zone_type", HostedZoneType.PRIVATE
-        )
-        auto_delete_objects = kwargs.get("auto_delete_objects", False)
-        prune = kwargs.get("prune", True)
-        removal_policy = (
-            cdk.RemovalPolicy.DESTROY
-            if auto_delete_objects
-            else cdk.RemovalPolicy.RETAIN
         )
 
         # -----------------
@@ -146,8 +137,7 @@ class B1StaticSite(Construct):
             object_ownership=s3.ObjectOwnership.BUCKET_OWNER_ENFORCED,
             server_access_logs_bucket=access_logs_bucket,
             server_access_logs_prefix=f"S3Logs/StaticSite/{domain_name}/",
-            removal_policy=removal_policy,
-            auto_delete_objects=auto_delete_objects,
+            removal_policy=cdk.RemovalPolicy.RETAIN,
         )
 
         self.bucket.add_lifecycle_rule(
@@ -175,7 +165,10 @@ class B1StaticSite(Construct):
             id="Distribution",
             certificate=certificate,
             default_root_object=root_object,
-            domain_names=[domain_name, f"www.{domain_name}"],
+            domain_names=[
+                self.hosted_zone.zone_name,
+                f"www.{self.hosted_zone.zone_name}",
+            ],
             minimum_protocol_version=cloudfront.SecurityPolicyProtocol.TLS_V1_2_2021,
             error_responses=error_responses,
             enable_logging=True,
@@ -199,7 +192,7 @@ class B1StaticSite(Construct):
         route53.ARecord(
             scope=self,
             id="ARecord",
-            record_name=domain_name,
+            record_name=self.hosted_zone.zone_name,
             target=route53.RecordTarget.from_alias(
                 alias_target=targets.CloudFrontTarget(self.distribution)
             ),
@@ -209,22 +202,19 @@ class B1StaticSite(Construct):
         route53.CnameRecord(
             scope=self,
             id="CnameRecord",
-            domain_name=domain_name,
-            record_name=f"www.{domain_name}",
+            domain_name=self.hosted_zone.zone_name,
+            record_name=f"www.{self.hosted_zone.zone_name}",
             zone=self.hosted_zone,
         )
 
         s3deploy.BucketDeployment(
             scope=self,
             id="BucketDeployment",
-            sources=[
-                s3deploy.Source.asset(asset_path)
-                for asset_path in asset_paths
-            ],
+            sources=[s3deploy.Source.asset(asset_path)],
             destination_bucket=self.bucket,
             distribution=self.distribution,
             distribution_paths=["/*"],
-            prune=prune,
+            prune=True,
         )
 
         ssm.StringParameter(
