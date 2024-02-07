@@ -4,7 +4,7 @@ from infra.constructs.b1.static_site import B1StaticSite
 from infra.constructs.b1.static_site import HostedZoneType
 
 
-class B2StaticSite(Construct):
+class B2RealLifeIacStaticSite(Construct):
     """Real Life IaC Book Static Site"""
 
     def __init__(
@@ -23,11 +23,6 @@ class B2StaticSite(Construct):
             root_object="index.html",
             asset_path="./out",
             error_responses=[
-                cloudfront.ErrorResponse(
-                    http_status=403,
-                    response_http_status=200,
-                    response_page_path="/index.html",
-                ),
                 cloudfront.ErrorResponse(
                     http_status=404,
                     response_http_status=200,

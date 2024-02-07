@@ -2,7 +2,7 @@ import aws_cdk as cdk
 
 from constructs import Construct
 from infra.constructs.b1.static_site import HostedZoneType
-from infra.constructs.b2.real_life_iac import B2StaticSite
+from infra.constructs.b2.real_life_iac import B2RealLifeIacStaticSite
 
 
 class FrontendStack(cdk.Stack):
@@ -17,7 +17,7 @@ class FrontendStack(cdk.Stack):
     ) -> None:
         super().__init__(scope, id, **kwargs)
 
-        B2StaticSite(
+        B2RealLifeIacStaticSite(
             scope=self,
             id="RealLifeIac",
             hosted_zone_type=hosted_zone_type,
