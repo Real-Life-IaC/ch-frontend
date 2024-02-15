@@ -50,8 +50,8 @@ class B1StaticSite(Construct):
         super().__init__(scope, id)
 
         # Read the kwargs
-        asset_path = kwargs.get("asset_path")
-        domain_name = kwargs.get("domain_name")
+        asset_path = kwargs["asset_path"]
+        domain_name = kwargs["domain_name"]
         root_object = kwargs.get("root_object") or "index.html"
         error_responses = kwargs.get("error_responses") or []
         hosted_zone_type = kwargs.get("hosted_zone_type") or "private"
