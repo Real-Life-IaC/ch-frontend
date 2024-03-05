@@ -21,7 +21,7 @@ export function TopNav() {
           {/* Text */}
           <span>
             <b>Real-Life Infrastructure as Code with AWS CDK</b>
-            &nbsp;|&nbsp;André Sionek
+            &nbsp;|&nbsp;Andre Sionek
           </span>
           {/* Book Icon After Text */}
           <svg
