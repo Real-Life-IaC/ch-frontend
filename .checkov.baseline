@@ -23,6 +23,12 @@
             "file": "/Frontend-sandbox.template.json",
             "findings": [
                 {
+                    "resource": "AWS::CloudFront::Distribution.RealLifeIacStaticSiteDistributionE310AB0E",
+                    "check_ids": [
+                        "CKV_AWS_68"
+                    ]
+                },
+                {
                     "resource": "AWS::IAM::Policy.CustomCDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756CServiceRoleDefaultPolicy88902FDF",
                     "check_ids": [
                         "CKV_AWS_111"
@@ -41,6 +47,12 @@
         {
             "file": "/Frontend-staging.template.json",
             "findings": [
+                {
+                    "resource": "AWS::CloudFront::Distribution.RealLifeIacStaticSiteDistributionE310AB0E",
+                    "check_ids": [
+                        "CKV_AWS_68"
+                    ]
+                },
                 {
                     "resource": "AWS::IAM::Policy.CustomCDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756CServiceRoleDefaultPolicy88902FDF",
                     "check_ids": [
