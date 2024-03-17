@@ -59,6 +59,10 @@ class B1StaticSite(Construct):
         # -----------------
         # Import from SSM
         # -----------------
+        stage = ssm.StringParameter.value_from_lookup(
+            scope=self,
+            parameter_name="/platform/stage",
+        )
 
         # Import the hosted zone name and id from SSM
         hosted_zone_name = ssm.StringParameter.value_for_string_parameter(
@@ -71,10 +75,15 @@ class B1StaticSite(Construct):
         )
 
         # Use the default WAF Web ACL defined in platform
-        waf_web_acl_arn = ssm.StringParameter.value_for_string_parameter(
-            scope=self,
-            parameter_name="/firewall/cloudfront-web-acl/arn",
-        )
+        if stage == "production":
+            waf_web_acl_arn = (
+                ssm.StringParameter.value_for_string_parameter(
+                    scope=self,
+                    parameter_name="/firewall/cloudfront-web-acl/arn",
+                )
+            )
+        else:
+            waf_web_acl_arn = None
 
         # Get the access logs bucket ARN from SSM
         access_logs_bucket_arn = (

@@ -1,1 +1,5 @@
-{}
+{
+  "ssm:account=905418189086:parameterName=/platform/stage:region=us-east-1": "staging",
+  "ssm:account=637423243766:parameterName=/platform/stage:region=us-east-1": "sandbox",
+  "ssm:account=730335548799:parameterName=/platform/stage:region=us-east-1": "production"
+}
