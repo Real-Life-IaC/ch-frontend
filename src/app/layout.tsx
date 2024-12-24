@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   authors: [{ name: 'André Sionek', url: 'https://sionek.com' }],
   creator: 'André Sionek',
   publisher: 'André Sionek',
-  icons: { icon: '/favicon.ico' },
+  icons: { icon: '/favicon.svg' },
   openGraph: {
     type: 'website',
     url: 'https://real-life-iac.com',
@@ -47,14 +47,21 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={cn('min-h-screen bg-background font-sans antialiased', fontSans.variable)}>
+      <body
+        className={cn(
+          'min-h-screen font-sans antialiased relative bg-background-pattern bg-repeat bg-[length:60px] bg-left ',
+          fontSans.variable
+        )}
+      >
+        <div className="absolute inset-0 bg-gradient-to-b from-white via-white/80 to-transparent dark:from-slate-950 dark:via-slate-950/80 z-0"></div>
+
         <ThemeProvider
           attribute="class"
           defaultTheme="light"
           enableSystem={false}
           disableTransitionOnChange
         >
-          {children}
+          <div className="relative z-10">{children}</div>
         </ThemeProvider>
       </body>
     </html>

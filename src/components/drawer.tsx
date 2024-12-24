@@ -57,21 +57,23 @@ export function GetPdfButton() {
             </svg>
             {/* Button Text */}
             <span>
-              <b>Already bought?</b>
-              <br />
-              Download the free pdf
+            <b>Download it for free!</b>
             </span>
           </Button>
         </DialogTrigger>
         <DialogContent className="sm:max-w-[625px]">
           <DialogHeader>
-            <DialogTitle className="mb-4 text-2xl">Request the book&apos;s pdf version</DialogTitle>
+            <DialogTitle className="mb-4 text-2xl">Get the FREE book!</DialogTitle>
             <DialogDescription>
-              Provide your order information and your best email. We will verify your purchase and
-              send the pdf version. Your email will only be used for this purpose.
+              Fill in with your best email. You&#39;ll receive a link to download the pdf file.
             </DialogDescription>
+            <DialogDescription>
+              The content is exactly the same you&#39;ll find in the paid version. If you enjoy reading it, please consider buying a printed or digital copy, or sponsoring the project!            </DialogDescription>
           </DialogHeader>
           <ProfileForm />
+          <DialogDescription>
+            By providing your email you agree to receive updates about the book and other related content produced by me. No spam, I promise.
+          </DialogDescription>
         </DialogContent>
       </Dialog>
     );
@@ -98,26 +100,30 @@ export function GetPdfButton() {
           </svg>
           {/* Button Text */}
           <span>
-            <b>Already bought?</b>
-            <br />
-            Download the free pdf
+            <b>Download it for free!</b>
           </span>
         </Button>
       </DrawerTrigger>
       <DrawerContent>
         <DrawerHeader className="text-left">
-          <DrawerTitle className="mb-2 text-xl">Request the book&apos;s pdf version</DrawerTitle>
+          <DrawerTitle className="mb-2 text-xl">Get the FREE book!</DrawerTitle>
           <DrawerDescription>
-            Provide your order information and your best email. We will verify your purchase and
-            send the pdf version. Your email will only be used for this purpose.
+            Fill in with your best email. You&#39;ll receive a link to download the pdf file.
           </DrawerDescription>
+          <DialogDescription>
+            The content is exactly the same you&#39;ll find in the paid version. If you enjoy reading it, please consider buying a printed or digital copy, or sponsoring the project!
+          </DialogDescription>
         </DrawerHeader>
         <ProfileForm className="px-4" />
         <DrawerFooter className="pt-2">
           <DrawerClose asChild>
             <Button variant="outline">Cancel</Button>
           </DrawerClose>
+          <DrawerDescription>
+            By providing your email you agree to receive updates about the book and other related content produced by me. No spam, I promise.
+          </DrawerDescription>
         </DrawerFooter>
+
       </DrawerContent>
     </Drawer>
   );
@@ -126,30 +132,12 @@ export function GetPdfButton() {
 function ProfileForm({ className }: React.ComponentProps<'form'>) {
   const [email, setEmail] = useState('');
   const [emailError, setEmailError] = useState('');
-  const [orderId, setOrderId] = useState('');
-  const [orderIdError, setOrderIdError] = useState('');
+  const [successMessage, setSuccessMessage] = useState(''); // State for success message
 
   // Email validation function
   const validateEmail = (inputEmail: string) => {
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailPattern.test(inputEmail);
-  };
-
-  const validateOrderId = (inputId: string) => {
-    const orderIdPattern = /^\d{3}-\d{7}-\d{7}$/;
-    return orderIdPattern.test(inputId);
-  };
-
-  const handleOrderIdChange = (event: { target: { value: any } }) => {
-    const inputOrderId = event.target.value;
-    setOrderId(inputOrderId);
-
-    // Validate order ID in real-time
-    if (validateOrderId(inputOrderId)) {
-      setOrderIdError(''); // Clear error message
-    } else {
-      setOrderIdError('Please enter a valid order ID.');
-    }
   };
 
   const handleEmailChange = (event: { target: { value: any } }) => {
@@ -169,69 +157,40 @@ function ProfileForm({ className }: React.ComponentProps<'form'>) {
     // Final email validation on submit
     if (validateEmail(email)) {
       setEmailError('');
+      setSuccessMessage('Thank you! Check your email now to get your book.'); // Set success message TODO: move to after api call
     } else {
       setEmailError('Please enter a valid email address.');
+      setSuccessMessage(''); // Clear success message on error
     }
-
-    if (validateOrderId(orderId)) {
-      setOrderIdError('');
-    } else {
-      setOrderIdError('Please enter a valid order ID.');
-    }
-
     // Proceed with form submission or further processing
   };
   return (
     <form onSubmit={handleSubmit} className={cn('grid items-start gap-4', className)}>
       <div className="grid gap-2">
+        <Label htmlFor="name">Name</Label>
+        <Input
+          type="name"
+          id="name"
+          placeholder="Jane Doe"
+        />
+      </div>
+      <div className="grid gap-2">
         <Label htmlFor="email">Email</Label>
         <Input
           type="email"
           id="email"
-          placeholder="name@example.com"
+          placeholder="jane.doe@example.com"
           onChange={handleEmailChange}
         />
       </div>
-      <div className="grid gap-2">
-        <Label htmlFor="orderId">Order Id</Label>
-        <Input id="orderId" placeholder="123-1234567-1234567" onChange={handleOrderIdChange} />
-      </div>
-      <div className="grid gap-2">
-        <Label htmlFor="order-date">Order Date</Label>
-        <DatePicker />
-      </div>
       {emailError && <div style={{ color: 'red' }}>{emailError}</div>}
-      {orderIdError && <div style={{ color: 'red' }}>{orderIdError}</div>}
+      {successMessage && <div style={{ color: 'green' }}>{successMessage}</div>}
       <Button
         className="mt-4 flex w-full items-center justify-center rounded-xl bg-[#343A40] px-6 py-6 text-xl text-white transition-colors duration-150 ease-in-out hover:bg-[#4a5056] dark:bg-white dark:text-black dark:hover:bg-[#D0D0D0] md:text-xl"
         type="submit"
       >
-        Request PDF
+        Request free book!
       </Button>
     </form>
-  );
-}
-
-export function DatePicker() {
-  const [date, setDate] = React.useState<Date>();
-
-  return (
-    <Popover>
-      <PopoverTrigger asChild>
-        <Button
-          variant={'outline'}
-          className={cn(
-            'w-[280px] justify-start text-left font-normal',
-            !date && 'text-muted-foreground'
-          )}
-        >
-          <CalendarIcon className="mr-2 h-4 w-4" />
-          {date ? format(date, 'PPP') : <span>Pick a date</span>}
-        </Button>
-      </PopoverTrigger>
-      <PopoverContent className="w-auto p-0">
-        <Calendar mode="single" selected={date} onSelect={setDate} initialFocus />
-      </PopoverContent>
-    </Popover>
   );
 }
