@@ -74,7 +74,7 @@ class B1StaticSite(Construct):
             parameter_name=f"/platform/dns/{domain_name}/{hosted_zone_type}-hosted-zone/id",
         )
 
-        # Use the default WAF Web ACL defined in platform
+        # Use the default Cloudfront WAF Web ACL only in production
         if stage == "production":
             waf_web_acl_arn = (
                 ssm.StringParameter.value_for_string_parameter(
@@ -159,7 +159,7 @@ class B1StaticSite(Construct):
                     iam.CanonicalUserPrincipal(
                         self.cloudfront_oai.cloud_front_origin_access_identity_s3_canonical_user_id
                     )
-                ],
+                ],  # type: ignore
             )
         )
 
@@ -197,7 +197,7 @@ class B1StaticSite(Construct):
             id="ARecord",
             record_name=self.hosted_zone.zone_name,
             target=route53.RecordTarget.from_alias(
-                alias_target=targets.CloudFrontTarget(self.distribution)
+                alias_target=targets.CloudFrontTarget(self.distribution)  # type: ignore
             ),
             zone=self.hosted_zone,
         )

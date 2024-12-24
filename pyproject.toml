@@ -176,8 +176,7 @@ omit = ["*/tests/*", "*/__init__.py", "*/*config.py"]    # Remove test files fro
 omit = ["*/tests/*", "*/__init__.py", "*/*config.py"]    # Remove test files from coverage report.
 
 [tool.commitizen]
-ag_format = "$major.$minor.$patch$prerelease"
-name = "conventional_commits"
+tag_format = "$version"
 version = "0.0.0"
 version_files = [
   "pyproject.toml:version",

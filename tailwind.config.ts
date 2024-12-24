@@ -23,6 +23,10 @@ const config = {
       fontFamily: {
         sans: ['var(--font-sans)', ...fontFamily.sans],
       },
+      backgroundImage: {
+        'background-pattern': "url('/pattern.png')", // Define your pattern image path here
+        'dark-pattern': "url('/dark-pattern.png')", // Dark mode background image
+      },
       colors: {
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',
