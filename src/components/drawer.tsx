@@ -65,10 +65,10 @@ export function GetPdfButton() {
           <DialogHeader>
             <DialogTitle className="mb-4 text-2xl">Get the FREE book!</DialogTitle>
             <DialogDescription>
-              Fill in with your best email. You'll receive a link to download the pdf file.
+              Fill in with your best email. You&#39;ll receive a link to download the pdf file.
             </DialogDescription>
             <DialogDescription>
-              The content is exactly the same you'll find in the paid version. If you enjoy reading it, please consider buying a printed or digital copy, or sponsoring the project!            </DialogDescription>
+              The content is exactly the same you&#39;ll find in the paid version. If you enjoy reading it, please consider buying a printed or digital copy, or sponsoring the project!            </DialogDescription>
           </DialogHeader>
           <ProfileForm />
           <DialogDescription>
@@ -108,10 +108,10 @@ export function GetPdfButton() {
         <DrawerHeader className="text-left">
           <DrawerTitle className="mb-2 text-xl">Get the FREE book!</DrawerTitle>
           <DrawerDescription>
-            Fill in with your best email. You'll receive a link to download the pdf file.
+            Fill in with your best email. You&#39;ll receive a link to download the pdf file.
           </DrawerDescription>
           <DialogDescription>
-            The content is exactly the same you'll find in the paid version. If you enjoy reading it, please consider buying a printed or digital copy, or sponsoring the project!
+            The content is exactly the same you&#39;ll find in the paid version. If you enjoy reading it, please consider buying a printed or digital copy, or sponsoring the project!
           </DialogDescription>
         </DrawerHeader>
         <ProfileForm className="px-4" />
