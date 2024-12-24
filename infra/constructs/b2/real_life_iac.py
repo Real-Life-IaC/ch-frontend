@@ -31,7 +31,7 @@ class B2RealLifeIacStaticSite(Construct):
                 cloudfront.ErrorResponse(
                     http_status=403,
                     response_http_status=200,
-                    response_page_path="/index.html",
+                    response_page_path="index.html",
                 ),
             ],
         )
