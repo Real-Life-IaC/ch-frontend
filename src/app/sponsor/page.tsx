@@ -1,6 +1,6 @@
 'use client';
 
-import { PixButton, PurchaseButton, SponsorButton } from '@/components/button';
+import { PixButton, OrderButton, SponsorButton } from '@/components/button';
 import { SponsorImage} from '@/components/images';
 import { TopSponsorNav } from '@/components/top';
 
@@ -11,7 +11,7 @@ export default function SponsorPage() {
       <SponsorImage />
 
       <div className="flex w-full flex-col items-center justify-center space-y-8 md:flex-col md:space-y-8 lg:flex-row lg:space-x-8 lg:space-y-0">
-        <PurchaseButton />
+        <OrderButton />
         <SponsorButton />
         <PixButton />
       </div>
