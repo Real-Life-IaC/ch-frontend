@@ -26,11 +26,6 @@ import {
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 
-import { format } from 'date-fns';
-import { Calendar as CalendarIcon } from 'lucide-react';
-import { Calendar } from '@/components/ui/calendar';
-import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
-
 export function GetPdfButton() {
   const [open, setOpen] = React.useState(false);
   const isDesktop = useMediaQuery('(min-width: 768px)');
@@ -57,7 +52,7 @@ export function GetPdfButton() {
             </svg>
             {/* Button Text */}
             <span>
-            <b>Download the eBook now!</b>
+            <b>Download the eBook!</b>
             </span>
           </Button>
         </DialogTrigger>
