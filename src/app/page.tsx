@@ -12,11 +12,24 @@ export default function Home() {
       <TopNav />
       <MainImage />
 
-      <div className="flex w-full flex-col items-center justify-center space-y-8 md:flex-row md:space-x-8 md:space-y-0">
+      <div className="flex w-full mb-12 flex-col items-center justify-center space-y-8 md:flex-row md:space-x-8 md:space-y-0">
         <OrderButton />
         <GetPdfButton />
       </div>
-      <div className="w-full max-w-5xl mx-auto text-left space-y-6 mt-12 px-6 md:px-12">
+
+      <BottomSection />
+
+      <div className="w-4/5 flex items-center my-8 md:my-12">
+        <hr className="flex-grow border-gray-300" />
+        <span className="flex px-8 text-gray-500 text-2xl">
+          <span className="mx-6">●</span>
+          <span className="mx-6">●</span>
+          <span className="mx-6">●</span>
+        </span>
+          <hr className="flex-grow border-gray-300" />
+      </div>
+
+      <div className="w-full mb-32 max-w-5xl mx-auto text-left space-y-6 mt-12 px-6 md:px-12">
         <h2 className="text-4xl font-bold mt-6 mb-6">What is this book about?</h2>
         <p className="text-base leading-8 text-justify">
           This book will show you how to build a modern software platform in Python using AWS CDK. Even if you use a different language, you will find this book useful because I focus on architecture patterns rather than syntax details. The book is divided into three parts: Foundations, Real-Life Examples, and Best Practices.
@@ -42,16 +55,8 @@ export default function Home() {
         </p>
       </div>
 
-      <div className="w-4/5 flex items-center my-8 md:my-12">
-        <hr className="flex-grow border-gray-300" />
-        <span className="flex px-8 text-gray-500 text-2xl">
-          <span className="mx-6">●</span>
-          <span className="mx-6">●</span>
-          <span className="mx-6">●</span>
-        </span>
-          <hr className="flex-grow border-gray-300" />
-      </div>
-      <BottomSection />
+
+
     </main>
   );
 }
