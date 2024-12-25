@@ -61,7 +61,7 @@ export function PurchaseButton() {
         </svg>
         {/* Button Text */}
         <span>
-          <b>Purchase the book</b>
+          <b>Purchase a copy</b>
         </span>
       </Link>
     </Button>
@@ -98,7 +98,7 @@ export function PixButton() {
       asChild
       className="flex h-20 w-full items-center justify-center rounded-2xl bg-[#DB4F40] px-6 py-10 text-xl text-white transition-colors duration-150 ease-in-out hover:bg-[#ed6f63] md:text-2xl"
     >
-      <Link href="https://nubank.com.br/cobrar/1j8r44/676aa1c1-1998-4b21-bc75-71ce62844573" target="_blank" className="block flex items-center justify-center space-x-2 px-4 py-2">
+      <Link href="https://nubank.com.br/cobrar/1j8r44/676bee9c-f120-49be-a7ca-840e500a3b59" target="_blank" className="block flex items-center justify-center space-x-2 px-4 py-2">
         <svg
         xmlns="http://www.w3.org/2000/svg"
         className="mr-2 h-12 w-12 text-white"

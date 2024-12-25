@@ -3,7 +3,7 @@ import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 
 export function BottomSection() {
   return (
-    <div className="mb-16 mt-16 grid text-center lg:mb-2 lg:w-full lg:max-w-7xl lg:grid-cols-3 lg:text-left">
+    <div className="mb-32 mt-4 grid text-center lg:mb-10 lg:w-full lg:max-w-7xl lg:grid-cols-3 lg:text-left">
       <a
         href="https://github.com/Real-Life-IaC"
         className="group flex flex-col items-center rounded-lg border border-transparent px-5 py-4 text-center transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
@@ -26,7 +26,7 @@ export function BottomSection() {
             </span>
           </h2>
           <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Explore the GitHub public repositories featuring the real-world examples and complete
+            Explore the public GitHub repositories featuring the real-world examples and complete
             code from the book.
           </p>
         </div>
@@ -73,7 +73,7 @@ export function BottomSection() {
             </span>
           </h2>
           <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Did you enjoy reading the book? Sponsor the project by donating any amount!
+            Did you enjoy reading the eBook? Sponsor the project by donating any amount!
           </p>
         </div>
       </a>

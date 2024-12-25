@@ -6,7 +6,7 @@ export function MainImage() {
     <div className="mb-14 mt-10 flex flex-col items-center justify-center md:flex-row">
       <Image
         className="relative w-full rounded-3xl bg-white"
-        src="/main-image.png"
+        src="/main-image.jpg"
         alt="Logo"
         width={300} // This will be the maximum width
         height={100} // This will be the maximum height
@@ -24,7 +24,7 @@ export function SponsorImage() {
     <div className="mb-14 mt-10 flex flex-col items-center justify-center md:flex-row">
       <Image
         className="relative w-full rounded-3xl bg-white"
-        src="/sponsor-image.jpg"
+        src="/sponsor-image.png"
         alt="Book"
         width={300} // This will be the maximum width
         height={100} // This will be the maximum height

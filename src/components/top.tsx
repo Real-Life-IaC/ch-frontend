@@ -7,7 +7,7 @@ export function TopNav() {
       <div className="flex items-center justify-center">
         <ModeToggle />
       </div>
-      <div className="mx-auto mb-4 mt-6 flex w-full max-w-7xl flex-col items-center justify-center space-y-2 px-4 font-mono text-sm lg:flex-row">
+      <div className="mx-auto mb-4 mt-6 flex w-full max-w-7xl flex-col items-center justify-center space-y-2 px-4 font-mono text-md md:text-xl lg:flex-row">
         <p className="flex items-center justify-center space-x-4 text-center lg:bg-none">
           {/* Book Icon Before Text */}
           <svg
@@ -49,7 +49,7 @@ export function TopSponsorNav() {
       <div className="mx-auto mb-4 mt-6 flex w-full max-w-7xl flex-col items-center justify-center space-y-2 px-4 font-mono text-sm lg:flex-row">
         <p className="flex items-center justify-center space-x-4 text-center lg:bg-none lg:text-4xl text-2xl">
           <span>
-            <b>Did you enjoy the book? Here is how to contribute.</b>
+            <b>Did you enjoy the eBook? Here is how to contribute.</b>
           </span>
         </p>
       </div>

@@ -57,22 +57,22 @@ export function GetPdfButton() {
             </svg>
             {/* Button Text */}
             <span>
-            <b>Download it for free!</b>
+            <b>Download the free eBook!</b>
             </span>
           </Button>
         </DialogTrigger>
         <DialogContent className="sm:max-w-[625px]">
           <DialogHeader>
-            <DialogTitle className="mb-4 text-2xl">Get the FREE book!</DialogTitle>
+            <DialogTitle className="mb-4 text-2xl">Get your FREE eBook!</DialogTitle>
             <DialogDescription>
-              Fill in with your best email. You&#39;ll receive a link to download the pdf file.
+              Fill in with your best email. You&#39;ll receive a link to download the eBook (pdf).
             </DialogDescription>
             <DialogDescription>
-              The content is exactly the same you&#39;ll find in the paid version. If you enjoy reading it, please consider buying a printed or digital copy, or sponsoring the project!            </DialogDescription>
+              The content is exactly the same you&#39;ll find in the paid version. If you enjoy reading it, please consider buying a copy, or sponsoring the project!            </DialogDescription>
           </DialogHeader>
           <ProfileForm />
           <DialogDescription>
-            By providing your email you agree to receive updates about the book and other related content produced by me. No spam, I promise.
+            By providing your email you agree to receive updates about the book <b>Real-Life Infrastructure as Code with AWS CDK</b> and other related content produced by me. No spam, no third parties, I promise.
           </DialogDescription>
         </DialogContent>
       </Dialog>
@@ -100,19 +100,19 @@ export function GetPdfButton() {
           </svg>
           {/* Button Text */}
           <span>
-            <b>Download it for free!</b>
+            <b>Download the free eBook!</b>
           </span>
         </Button>
       </DrawerTrigger>
       <DrawerContent>
         <DrawerHeader className="text-left">
-          <DrawerTitle className="mb-2 text-xl">Get the FREE book!</DrawerTitle>
+          <DrawerTitle className="mb-2 text-xl">Get your FREE eBook!</DrawerTitle>
           <DrawerDescription>
-            Fill in with your best email. You&#39;ll receive a link to download the pdf file.
+            Fill in with your best email. You&#39;ll receive a link to download the eBook (pdf).
           </DrawerDescription>
-          <DialogDescription>
-            The content is exactly the same you&#39;ll find in the paid version. If you enjoy reading it, please consider buying a printed or digital copy, or sponsoring the project!
-          </DialogDescription>
+          <DrawerDescription>
+            The content is exactly the same you&#39;ll find in the paid version. If you enjoy reading it, please consider buying a copy, or sponsoring the project!
+          </DrawerDescription>
         </DrawerHeader>
         <ProfileForm className="px-4" />
         <DrawerFooter className="pt-2">
@@ -120,7 +120,7 @@ export function GetPdfButton() {
             <Button variant="outline">Cancel</Button>
           </DrawerClose>
           <DrawerDescription>
-            By providing your email you agree to receive updates about the book and other related content produced by me. No spam, I promise.
+            By providing your email you agree to receive updates about the book <b>Real-Life Infrastructure as Code with AWS CDK</b> and other related content produced by me. No spam, no third parties, I promise.
           </DrawerDescription>
         </DrawerFooter>
 
