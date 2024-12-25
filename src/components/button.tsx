@@ -29,39 +29,7 @@ export function OrderButton() {
         </svg>
         {/* Button Text */}
         <span>
-          <b>Buy it now!</b>
-        </span>
-      </Link>
-    </Button>
-  );
-}
-
-
-export function PurchaseButton() {
-  return (
-    <Button
-      asChild
-      className="flex h-20 w-full items-center justify-center rounded-2xl bg-[#DB4F40] px-6 py-10 text-xl text-white transition-colors duration-150 ease-in-out hover:bg-[#ed6f63] md:text-2xl"
-    >
-      <Link href="/todo" target="_blank" className="block flex items-center justify-center space-x-2 px-4 py-2">
-        {/* Shopping Cart Icon */}
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          className="mr-2 h-12 w-12"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-          strokeWidth={2}
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m-5 5a2 2 0 100-4 2 2 0 000 4zm-6 0a2 2 0 100-4 2 2 0 000 4z"
-          />
-        </svg>
-        {/* Button Text */}
-        <span>
-          <b>Purchase the book</b>
+          <b>Order the Paperback!</b>
         </span>
       </Link>
     </Button>
@@ -98,7 +66,7 @@ export function PixButton() {
       asChild
       className="flex h-20 w-full items-center justify-center rounded-2xl bg-[#DB4F40] px-6 py-10 text-xl text-white transition-colors duration-150 ease-in-out hover:bg-[#ed6f63] md:text-2xl"
     >
-      <Link href="https://nubank.com.br/cobrar/1j8r44/676aa1c1-1998-4b21-bc75-71ce62844573" target="_blank" className="block flex items-center justify-center space-x-2 px-4 py-2">
+      <Link href="https://nubank.com.br/cobrar/1j8r44/676bee9c-f120-49be-a7ca-840e500a3b59" target="_blank" className="block flex items-center justify-center space-x-2 px-4 py-2">
         <svg
         xmlns="http://www.w3.org/2000/svg"
         className="mr-2 h-12 w-12 text-white"

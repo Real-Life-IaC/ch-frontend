@@ -1,6 +1,6 @@
 'use client';
 
-import { PixButton, PurchaseButton, SponsorButton } from '@/components/button';
+import { PixButton, OrderButton, SponsorButton } from '@/components/button';
 import { SponsorImage} from '@/components/images';
 import { TopSponsorNav } from '@/components/top';
 
@@ -11,12 +11,12 @@ export default function SponsorPage() {
       <SponsorImage />
 
       <div className="flex w-full flex-col items-center justify-center space-y-8 md:flex-col md:space-y-8 lg:flex-row lg:space-x-8 lg:space-y-0">
-        <PurchaseButton />
+        <OrderButton />
         <SponsorButton />
         <PixButton />
       </div>
       <div className="mt-12 w-full lg:w-5/6">
-        <p className="mb-6">I lost my job. That&#39;s how I started writing a book in November 2023.</p>
+        <p className="mb-6">I lost my job. That&#39;s how I started writing this book in November 2023.</p>
 
         <p className="mb-6">At that time, I had a grim picture of what would happen to the startup I was working on. Working on a book while unemployed had its pros and cons. On one hand, I had a full working day to write it. It was better than trying to fit it in after a day&#39;s work when my mind was already exhausted. However, because I was thinking about the book all the time, I would quickly become tired of it and procrastination became a problem. The anxiety of not having a job also took a toll on my mental health. In my case, I signed a job offer a few days after being laid off, but switching my work visa took much longer than expected. I focused on writing most of it while waiting for permission to work.</p>
 
@@ -26,7 +26,7 @@ export default function SponsorPage() {
 
         <p className="mb-6">Now... Let&#39;s talk about what matters:</p>
 
-        <p className="mb-6">The book is free and a pdf version is available for download, free of charge.</p>
+        <p className="mb-6">The eBook is available for download free of charge. The content is exactly the same you would find in the paid version.</p>
 
         <p className="mb-6">If you like my work and want to support it, you&#39;re more than welcome to purchase a hardcopy or a digital edition.</p>
 

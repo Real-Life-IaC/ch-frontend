@@ -26,7 +26,7 @@ class B2RealLifeIacStaticSite(Construct):
                 cloudfront.ErrorResponse(
                     http_status=404,
                     response_http_status=200,
-                    response_page_path="/404.html",
+                    response_page_path="/index.html",
                 ),
                 cloudfront.ErrorResponse(
                     http_status=403,

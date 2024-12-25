@@ -26,11 +26,6 @@ import {
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 
-import { format } from 'date-fns';
-import { Calendar as CalendarIcon } from 'lucide-react';
-import { Calendar } from '@/components/ui/calendar';
-import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
-
 export function GetPdfButton() {
   const [open, setOpen] = React.useState(false);
   const isDesktop = useMediaQuery('(min-width: 768px)');
@@ -57,22 +52,26 @@ export function GetPdfButton() {
             </svg>
             {/* Button Text */}
             <span>
-            <b>Download it for free!</b>
+            <b>Download the eBook!</b>
             </span>
           </Button>
         </DialogTrigger>
         <DialogContent className="sm:max-w-[625px]">
           <DialogHeader>
-            <DialogTitle className="mb-4 text-2xl">Get the FREE book!</DialogTitle>
-            <DialogDescription>
-              Fill in with your best email. You&#39;ll receive a link to download the pdf file.
+            <DialogTitle className="mb-4 text-2xl">Download Your Exclusive eBook!</DialogTitle>
+            <DialogDescription className="mb-4 text-md text-bold">
+              And become a master in Infrastructure as Code with AWS CDK!
             </DialogDescription>
-            <DialogDescription>
-              The content is exactly the same you&#39;ll find in the paid version. If you enjoy reading it, please consider buying a printed or digital copy, or sponsoring the project!            </DialogDescription>
+            <DialogDescription className="mb-4">
+              Fill in the form to receive a link to download the FREE eBook in your email. The content is exactly the same you&#39;ll find in the paperback version. If you enjoy reading it, please consider <a href='todo' className='text-[#DB4F40] font-bold hover:underline'>buying a copy</a>, or <a href='/sponsor/index.html' className='text-[#DB4F40] font-bold hover:underline'>sponsoring</a> the project!
+            </DialogDescription>
           </DialogHeader>
-          <ProfileForm />
-          <DialogDescription>
-            By providing your email you agree to receive updates about the book and other related content produced by me. No spam, I promise.
+          <ProfileForm className="mt-4 mb-4"/>
+          <DialogDescription className="mt-4">
+            By providing your email you agree to receive updates about the book <b>Real-Life Infrastructure as Code with AWS CDK</b> and other related content produced by me.
+          </DialogDescription>
+          <DialogDescription className="mt-4">
+            Your privacy is important. No spam, no third parties.
           </DialogDescription>
         </DialogContent>
       </Dialog>
@@ -100,27 +99,30 @@ export function GetPdfButton() {
           </svg>
           {/* Button Text */}
           <span>
-            <b>Download it for free!</b>
+            <b>Download the eBook now!</b>
           </span>
         </Button>
       </DrawerTrigger>
       <DrawerContent>
         <DrawerHeader className="text-left">
-          <DrawerTitle className="mb-2 text-xl">Get the FREE book!</DrawerTitle>
-          <DrawerDescription>
-            Fill in with your best email. You&#39;ll receive a link to download the pdf file.
+          <DrawerTitle className="mb-2 text-xl">Download Your Exclusive eBook!</DrawerTitle>
+          <DrawerDescription className="mb-2 text-md text-bold">
+              And become a master in Infrastructure as Code with AWS CDK!
           </DrawerDescription>
-          <DialogDescription>
-            The content is exactly the same you&#39;ll find in the paid version. If you enjoy reading it, please consider buying a printed or digital copy, or sponsoring the project!
-          </DialogDescription>
+          <DrawerDescription className="mb-2">
+            Fill in the form to receive a link to download the FREE eBook in your email. The content is exactly the same you&#39;ll find in the paperback version. If you enjoy reading it, please consider <a href='todo' className='text-[#DB4F40] font-bold hover:underline'>buying a copy</a>, or <a href='/sponsor/index.html' className='text-[#DB4F40] font-bold hover:underline'>sponsoring</a> the project!
+          </DrawerDescription>
         </DrawerHeader>
-        <ProfileForm className="px-4" />
+        <ProfileForm className="px-4 mt-2 mb-2" />
         <DrawerFooter className="pt-2">
           <DrawerClose asChild>
             <Button variant="outline">Cancel</Button>
           </DrawerClose>
-          <DrawerDescription>
-            By providing your email you agree to receive updates about the book and other related content produced by me. No spam, I promise.
+          <DrawerDescription className="mt-4">
+            By providing your email you agree to receive updates about the book <b>Real-Life Infrastructure as Code with AWS CDK</b> and other related content produced by me.
+          </DrawerDescription>
+          <DrawerDescription className="mt-4">
+            Your privacy is important. No spam, no third parties.
           </DrawerDescription>
         </DrawerFooter>
 
@@ -167,7 +169,7 @@ function ProfileForm({ className }: React.ComponentProps<'form'>) {
   return (
     <form onSubmit={handleSubmit} className={cn('grid items-start gap-4', className)}>
       <div className="grid gap-2">
-        <Label htmlFor="name">Name</Label>
+        <Label htmlFor="name">Your Name</Label>
         <Input
           type="name"
           id="name"
@@ -175,7 +177,7 @@ function ProfileForm({ className }: React.ComponentProps<'form'>) {
         />
       </div>
       <div className="grid gap-2">
-        <Label htmlFor="email">Email</Label>
+        <Label htmlFor="email">Your Best Email Address</Label>
         <Input
           type="email"
           id="email"
@@ -189,7 +191,7 @@ function ProfileForm({ className }: React.ComponentProps<'form'>) {
         className="mt-4 flex w-full items-center justify-center rounded-xl bg-[#343A40] px-6 py-6 text-xl text-white transition-colors duration-150 ease-in-out hover:bg-[#4a5056] dark:bg-white dark:text-black dark:hover:bg-[#D0D0D0] md:text-xl"
         type="submit"
       >
-        Request free book!
+        Send Me My eBook!
       </Button>
     </form>
   );
