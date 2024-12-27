@@ -31,17 +31,17 @@ make help
 ### Install the dependencies
 
 ```bash
-npm install
+cd app && npm install
 ```
 
 ### Run the application in localhost
 
 ```bash
-npm run dev
+cd app && npm run dev
 ```
 
 ### Build the application
 
 ```bash
-npm run build
+cd app && npm run build
 ```
