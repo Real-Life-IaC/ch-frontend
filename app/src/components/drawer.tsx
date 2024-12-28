@@ -26,7 +26,6 @@ import {
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { downloadServiceApiUrl } from '@/Environment';
-import {DownloadButton} from '@/components/button';
 import { DownloadIcon } from '@/components/icons';
 
 export function GetPdfButton() {
