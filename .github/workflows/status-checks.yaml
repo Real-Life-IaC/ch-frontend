@@ -60,7 +60,9 @@ jobs:
 
       - name: Create an empty app/dist/index.html
         shell: bash
-        run: touch app/dist/index.html
+        run: |
+          mkdir -p app/dist
+          touch app/dist/index.html
 
       - name: Create an empty out directory
         shell: bash
