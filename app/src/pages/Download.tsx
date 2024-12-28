@@ -7,7 +7,6 @@ import { downloadServiceApiUrl } from '@/Environment';
 const downloadFile = (url: string): void => {
   const link = document.createElement('a');
   link.href = url;
-  link.target = '_blank';
   link.download = 'Real-Life Infrastructure as Code With AWS CDK.pdf';
   document.body.appendChild(link);
   console.log('Downloading file:', link);

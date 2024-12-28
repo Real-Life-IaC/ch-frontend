@@ -169,7 +169,7 @@ function ProfileForm({ className }: React.ComponentProps<'form'>) {
     setLoading(true);
 
     try {
-      const response = await fetch(`${downloadServiceApiUrl}/`, {
+      const response = await fetch(`${downloadServiceApiUrl}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
