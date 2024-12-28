@@ -26,6 +26,15 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Install Node Dependencies and Build React App
+        shell: bash
+        run: |
+          cd app
+          npm install
+          npm run build
+        env:
+          VITE_API_URL: ${{ vars.API_URL }}
+
       - name: Deploy Stack
         uses: ./.github/actions/deploy
         with:
@@ -41,6 +50,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
+      - name: Install Node Dependencies and Build React App
+        shell: bash
+        run: |
+          cd app
+          npm install
+          npm run build
+        env:
+          VITE_API_URL: ${{ vars.API_URL }}
 
       - name: Deploy Stack
         uses: ./.github/actions/deploy
@@ -60,6 +78,16 @@ jobs:
       - deploy-staging
     steps:
       - uses: actions/checkout@v4
+
+      - name: Install Node Dependencies and Build React App
+        shell: bash
+        run: |
+          cd app
+          npm install
+          npm run build
+        env:
+          VITE_API_URL: ${{ vars.API_URL }}
+
 
       - name: Deploy Stack
         uses: ./.github/actions/deploy

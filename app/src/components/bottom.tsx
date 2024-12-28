@@ -14,12 +14,9 @@ export function BottomSection() {
         className="mb-2 h-28 w-28 text-black dark:text-white"
         fill="currentColor"
       />
-      <div className="mt-4 lg:text-left">
+      <div className="mt-4">
           <h2 className="mb-3 text-2xl font-semibold">
-            The code{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
+            The code
           </h2>
           <p className="m-0 max-w-[30ch] text-sm opacity-50">
             Explore the public GitHub repositories featuring the real-world examples and complete
@@ -37,12 +34,9 @@ export function BottomSection() {
           <AvatarImage src="/andre.png" alt="Andre Sionek" />
           <AvatarFallback>Andre Sionek</AvatarFallback>
         </Avatar>
-        <div className="mt-4 lg:text-left">
+        <div className="mt-4">
           <h2 className="mb-3 text-2xl font-semibold">
-            The author{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
+            The author
           </h2>
           <p className="m-0 max-w-[30ch] text-sm opacity-50">
             André Sionek is a Lead Software & Data Engineer with expertise in AWS CDK and CI/CD.
@@ -58,12 +52,9 @@ export function BottomSection() {
       <PandaIcon
         className="mb-2 h-28 w-28 text-black dark:text-white"
         fill="currentColor"/>
-       <div className="mt-4 lg:text-left">
+       <div className="mt-4">
           <h2 className="mb-3 text-2xl font-semibold">
-            Become a sponsor{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
+            Become a sponsor
           </h2>
           <p className="m-0 max-w-[30ch] text-sm opacity-50">
             Did you enjoy reading the eBook? Sponsor the project by donating any amount!

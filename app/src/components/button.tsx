@@ -2,13 +2,13 @@
 
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
-import {CartIcon, PixIcon, GitHubIcon} from '@/components/icons';
+import {CartIcon, PixIcon, GitHubIcon, DownloadIcon} from '@/components/icons';
 
 export function OrderButton() {
   return (
     <Button
       asChild
-      className="flex h-20 w-full items-center justify-center rounded-2xl bg-[#DB4F40] px-6 py-10 text-xl text-white transition-colors duration-150 ease-in-out hover:bg-[#ed6f63] md:text-2xl"
+      className="flex h-20 w-full items-center justify-center rounded-2xl bg-[#DB4F40] px-6 py-10 text-lg text-white transition-colors duration-150 ease-in-out hover:bg-[#ed6f63] md:text-xl lg:text-2xl"
     >
       <Link to="/todo" className="block flex items-center justify-center space-x-2 px-4 py-2">
         {/* Shopping Cart Icon */}
@@ -44,6 +44,23 @@ export function SponsorButton() {
           <b>Become a sponsor</b>
         </span>
       </Link>
+    </Button>
+  );
+}
+
+export function DownloadButton() {
+  return (
+    <Button className="flex w-full items-center justify-center rounded-2xl bg-[#343A40] px-6 py-10 text-xl text-white transition-colors duration-150 ease-in-out hover:bg-[#4a5056] dark:bg-white dark:text-black dark:hover:bg-[#D0D0D0] md:text-xl lg:text-2xl">
+      <DownloadIcon
+        className="mr-8 h-12 w-12"
+        fill="none"
+        style={{ width: '48px', height: '48px' }}
+        stroke="currentColor"
+        strokeWidth="2"
+        />
+        <span>
+        <b>Download the eBook!</b>
+        </span>
     </Button>
   );
 }

@@ -25,12 +25,6 @@ runs:
       shell: bash
       run: poetry install
 
-    - name: Install Node Dependencies and Build React App
-      shell: bash
-      run: |
-        cd app
-        npm install
-        npm run build
     - name: Configure AWS credentials
       uses: aws-actions/configure-aws-credentials@v4
       with:

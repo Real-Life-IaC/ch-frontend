@@ -25,8 +25,8 @@ import {
 } from '@/components/ui/drawer';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import { DownloadIcon } from '@/components/icons';
-
+import { downloadServiceApiUrl } from '@/Environment';
+import {DownloadButton} from '@/components/button';
 
 export function GetPdfButton() {
   const [open, setOpen] = React.useState(false);
@@ -36,19 +36,7 @@ export function GetPdfButton() {
     return (
       <Dialog open={open} onOpenChange={setOpen}>
         <DialogTrigger asChild>
-          <Button className="flex w-full items-center justify-center rounded-2xl bg-[#343A40] px-6 py-10 text-xl text-white transition-colors duration-150 ease-in-out hover:bg-[#4a5056] dark:bg-white dark:text-black dark:hover:bg-[#D0D0D0] md:text-2xl">
-          <DownloadIcon
-            className="mr-8 h-12 w-12"
-            fill="none"
-            style={{ width: '48px', height: '48px' }}
-            stroke="currentColor"
-            strokeWidth="2"
-            />
-            {/* Button Text */}
-            <span>
-            <b>Download the eBook!</b>
-            </span>
-          </Button>
+          <DownloadButton />
         </DialogTrigger>
         <DialogContent className="sm:max-w-[625px]">
           <DialogHeader>
@@ -75,19 +63,7 @@ export function GetPdfButton() {
   return (
     <Drawer open={open} onOpenChange={setOpen}>
       <DrawerTrigger asChild>
-        <Button className="flex h-20 w-full items-center  justify-center rounded-2xl bg-[#343A40] px-6 py-10 text-xl text-white transition-colors duration-150 ease-in-out hover:bg-[#4a5056] dark:bg-white dark:text-black dark:hover:bg-[#D0D0D0] md:text-2xl">
-          <DownloadIcon
-            className="mr-8 h-12 w-12"
-            fill="none"
-            style={{ width: '48px', height: '48px' }}
-            stroke="currentColor"
-            strokeWidth="2"
-            />
-          {/* Button Text */}
-          <span>
-            <b>Download the eBook!</b>
-          </span>
-        </Button>
+        <DownloadButton />
       </DrawerTrigger>
       <DrawerContent>
         <DrawerHeader className="text-left">
@@ -171,7 +147,7 @@ function ProfileForm({ className }: React.ComponentProps<'form'>) {
     setLoading(true);
 
     try {
-      const response = await fetch('https://api.real-life-iac.com/request', {
+      const response = await fetch(`${downloadServiceApiUrl}/`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
