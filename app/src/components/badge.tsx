@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { Badge } from "@/components/ui/badge";
 import { LoadingSpinner } from "@/components/ui/spinner";
+import {downloadServiceApiUrl} from '@/Environment';
 
 export function DownloadsBadge() {
   const [downloads, setDownloads] = useState<number | null>(null);
@@ -11,7 +12,7 @@ export function DownloadsBadge() {
   useEffect(() => {
     const fetchStatistics = async () => {
       try {
-        const response = await fetch("https://api.real-life-iac.com/statistics");
+        const response = await fetch(`${downloadServiceApiUrl}/statistics`);
         if (!response.ok) {
           throw new Error("Failed to fetch statistics");
         }

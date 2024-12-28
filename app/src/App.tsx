@@ -4,6 +4,7 @@ import Home from './pages/Home';
 import RootLayout from './RootLayout';
 import Sponsor from './pages/Sponsor';
 import Download from './pages/Download';
+import Unsubscribe from './pages/Unsubscribe';
 
 const App: React.FC = () => {
     return (
@@ -13,6 +14,7 @@ const App: React.FC = () => {
                     <Route path="/" element={<Home />} />
                     <Route path="/sponsor" element={<Sponsor />} />
                     <Route path="/download/:token" element={<Download />} />
+                    <Route path="/email/unsubscribe/:email" element={<Unsubscribe />} />
                 </Routes>
             </RootLayout>
         </Router>

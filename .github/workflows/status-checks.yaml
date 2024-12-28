@@ -58,6 +58,12 @@ jobs:
         shell: bash
         run: poetry install --with checkov
 
+      - name: Create an empty app/dist/index.html
+        shell: bash
+        run: |
+          mkdir -p app/dist
+          touch app/dist/index.html
+
       - name: Create an empty out directory
         shell: bash
         run: mkdir -p out
