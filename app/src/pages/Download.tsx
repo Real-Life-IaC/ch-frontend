@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { SponsorImage } from '@/components/images';
 import { LoadingSpinner } from '@/components/ui/spinner';
+import { Button } from '@/components/ui/button';
+import { Footer } from '@/components/footer';
 
 const downloadFile = (url: string): void => {
   const link = document.createElement('a');
@@ -35,8 +36,8 @@ const Download: React.FC = () => {
       downloadFile(data.url);
       setSuccess(true);
     } catch (error) {
-      const errorMessage = error instanceof Error ? error.message : 'Unknown error occurred. Please try again later.';
-      setError(errorMessage);
+      // const errorMessage = error instanceof Error ? error.message : 'Unknown error occurred. Please try again later.';
+      // setError(errorMessage);
     } finally {
       setIsLoading(false);
     }
@@ -62,9 +63,15 @@ const Download: React.FC = () => {
           <h1 className="text-3xl font-bold text-green-600">Download Successful!</h1>
           <p className="text-lg mt-4">Your file has been downloaded. Thank you for your interest!</p>
           <div className="mt-8">
-            <Link to="/" className="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600">
-              Go Back to Home
-            </Link>
+            <Button
+              asChild
+              className="flex h-20 mt-16 mb-16 w-1/2 items-center justify-center rounded-2xl bg-[#DB4F40] px-6 py-10 text-xl text-white transition-colors duration-150 ease-in-out hover:bg-[#ed6f63] md:text-2xl"
+            >
+              <Link to="/">
+                Back to Home
+              </Link>
+            </Button>
+            < Footer />
           </div>
         </div>
       </main>
@@ -73,16 +80,19 @@ const Download: React.FC = () => {
 
   return (
     <main className="mx-auto flex justify-center min-h-screen w-full max-w-7xl flex-col items-center p-8 bg-white dark:bg-slate-950">
-      <div className="mt-16 text-center">
-        <h1 className="text-6xl font-bold text-red-600 mb-8">Error</h1>
+      <div className="text-center">
+        <h1 className="text-6xl font-bold text-[#DB4F40] mb-8">Error</h1>
         <p className="mb-6 text-xl">{error}</p>
-
       </div>
-      <div className="w-1/3 mt-8">
-        <Link to="/" className="block flex items-center justify-center space-x-2 px-4 py-2">
-          <SponsorImage />
+      <Button
+        asChild
+        className="flex h-20 mt-16 mb-16 w-1/2 items-center justify-center rounded-2xl bg-[#DB4F40] px-6 py-10 text-xl text-white transition-colors duration-150 ease-in-out hover:bg-[#ed6f63] md:text-2xl"
+      >
+        <Link to="/">
+          Back to Home
         </Link>
-      </div>
+      </Button>
+      < Footer />
     </main>
   );
 };

@@ -1,23 +1,30 @@
 import React from 'react';
 import { PixButton, OrderButton, SponsorButton } from '@/components/button';
 import { SponsorImage} from '@/components/images';
-import { TopSponsorNav } from '@/components/top';
 import { Link } from 'react-router-dom';
+import { Button } from '@/components/ui/button';
+import { Footer } from '@/components/footer';
 
 
 const Sponsor: React.FC = () => {
   return (
     <main className="mx-auto flex min-h-screen w-full max-w-7xl flex-col items-center p-8 bg-white dark:bg-slate-950">
-      <TopSponsorNav />
       <Link to="/">
         <SponsorImage />
       </Link>
 
-      <div className="flex w-full flex-col items-center justify-center space-y-8 md:flex-col md:space-y-8 lg:flex-row lg:space-x-8 lg:space-y-0">
+      <p className="flex items-center justify-center space-x-4 text-center lg:bg-none lg:text-4xl text-3xl">
+        <span>
+          <b>Did you enjoy the eBook? Here is how to contribute.</b>
+        </span>
+      </p>
+
+      <div className="flex mt-16 w-full flex-col items-center justify-center space-y-8 md:flex-col md:space-y-8 lg:flex-row lg:space-x-8 lg:space-y-0">
         <OrderButton />
         <SponsorButton />
         <PixButton />
       </div>
+
       <div className="mt-12 w-full lg:w-5/6">
         <p className="mb-6">I lost my job. That's how I started writing this book in November 2023.</p>
 
@@ -35,6 +42,15 @@ const Sponsor: React.FC = () => {
 
         <p className="mb-6">You can also be a patron with a one-off donation in the amount you think the book is worth. But no pressure, you don't need to pay anything.</p>
       </div>
+      <Button
+        asChild
+        className="flex h-20 mt-16 mb-16 w-1/2 items-center justify-center rounded-2xl bg-[#DB4F40] px-6 py-10 text-xl text-white transition-colors duration-150 ease-in-out hover:bg-[#ed6f63] md:text-2xl"
+      >
+        <Link to="/">
+          Back to Home
+        </Link>
+      </Button>
+      < Footer />
     </main>
   );
 };

@@ -4,10 +4,11 @@ import { OrderButton } from '@/components/button';
 import { MainImage } from '@/components/images';
 import { TopNav } from '@/components/top';
 import { BottomSection } from '@/components/bottom';
+import { Footer } from '@/components/footer';
 
 const Home: React.FC = () => {
   return (
-    <main className="mx-auto flex min-h-screen w-full  max-w-7xl flex-col items-center p-8 bg-white dark:bg-slate-950">
+    <main className="mx-auto flex min-h-screen w-full max-w-7xl flex-col items-center p-8 bg-white dark:bg-slate-950">
       <TopNav />
       <MainImage />
 
@@ -53,6 +54,7 @@ const Home: React.FC = () => {
           By the end of this book, you will have a clear understanding of IaC with CDK and the confidence to build a scalable, secure, and easy-to-maintain software platform in AWS.
         </p>
       </div>
+      < Footer />
     </main>
   );
 };

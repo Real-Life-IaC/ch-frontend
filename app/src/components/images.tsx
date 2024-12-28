@@ -18,7 +18,7 @@ export function MainImage() {
 
 export function SponsorImage() {
   return (
-    <div className="mb-14 mt-10 flex flex-col items-center justify-center md:flex-row">
+    <div className="mb-8 flex flex-col items-center justify-center md:flex-row">
       <Img
         className="relative w-full rounded-3xl bg-white"
         src="/sponsor-image.png"

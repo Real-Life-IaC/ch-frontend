@@ -54,7 +54,7 @@ export function GetPdfButton() {
           <DialogHeader>
             <DialogTitle className="mb-4 text-2xl">Download Your Exclusive eBook!</DialogTitle>
             <DialogDescription className="mb-4 text-md text-bold">
-              And become a master in Infrastructure as Code with AWS CDK!
+              Learn Infrastructure as Code with AWS CDK.
             </DialogDescription>
             <DialogDescription className="mb-4">
               Fill in the form to receive a link to download the FREE eBook in your email. The content is exactly the same you&#39;ll find in the paperback version. If you enjoy reading it, please consider <a href='todo' className='text-[#DB4F40] font-bold hover:underline'>buying a copy</a>, or <a href='/sponsor' className='text-[#DB4F40] font-bold hover:underline'>sponsoring</a> the project!
@@ -93,7 +93,7 @@ export function GetPdfButton() {
         <DrawerHeader className="text-left">
           <DrawerTitle className="mb-2 text-xl">Download Your Exclusive eBook!</DrawerTitle>
           <DrawerDescription className="mb-2 text-md text-bold">
-              And become a master in Infrastructure as Code with AWS CDK!
+              Learn Infrastructure as Code with AWS CDK.
           </DrawerDescription>
           <DrawerDescription className="mb-2">
             Fill in the form to receive a link to download the FREE eBook in your email. The content is exactly the same you&#39;ll find in the paperback version. If you enjoy reading it, please consider <a href='todo' className='text-[#DB4F40] font-bold hover:underline'>buying a copy</a>, or <a href='/sponsor' className='text-[#DB4F40] font-bold hover:underline'>sponsoring</a> the project!
@@ -123,7 +123,7 @@ function ProfileForm({ className }: React.ComponentProps<'form'>) {
   const [validationError, setValidationError] = useState('');
   const [successMessage, setSuccessMessage] = useState('');
   const [apiError, setApiError] = useState('');
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
 
   // Email validation function
   const validateEmail = (inputEmail: string) => {
@@ -167,6 +167,8 @@ function ProfileForm({ className }: React.ComponentProps<'form'>) {
       setValidationError('Please enter your name.');
       return;
     }
+
+    setLoading(true);
 
     try {
       const response = await fetch('https://api.real-life-iac.com/request', {
@@ -225,7 +227,7 @@ function ProfileForm({ className }: React.ComponentProps<'form'>) {
         type="submit"
         disabled={loading}
       >
-        {loading ? 'Please wait...' : 'Send Me My eBook!'}
+        {loading ? 'Please wait...' : 'Send me the eBook!'}
       </Button>
     </form>
   );
