@@ -182,7 +182,7 @@ function ProfileForm({ className }: React.ComponentProps<'form'>) {
       });
 
       if (response.ok) {
-        setSuccessMessage('Thank you! Check your email now to get your book.');
+        setSuccessMessage('Thank you! Open your email now to get your eBook. Remember to check the spam folder as well!');
       } else {
         const errorData = await response.json();
         setApiError(errorData.message || 'An unexpected error occurred.');
