@@ -42,7 +42,7 @@ const Home: React.FC = () => {
           <li>Cloud computing concepts and services, including the AWS Well Architected Framework.</li>
           <li>How to build a cloud-native software platform using CDK.</li>
           <li>Create constructs of code to build your cloud application.</li>
-          <li>How to create reusable construct libraries.</li>
+          <li>How to create a microservices architecture with CDK.</li>
         </ul>
         <p className="text-base leading-8 text-justify">
           In most cases, I will not discuss the pros and cons of different approaches or try to convince you to use one tool over another. I assume that you are already familiar with the WHATs and WHYs, and you are reading this book to learn the HOWs. I will share my opinionated best practices, but keep in mind that opinions can change based on new evidence or different contexts. My opinions may also be completely wrong. Keep this in mind while reading.
