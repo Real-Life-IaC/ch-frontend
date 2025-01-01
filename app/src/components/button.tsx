@@ -10,7 +10,7 @@ export function OrderButton() {
       asChild
       className="flex h-20 w-full items-center justify-center rounded-2xl bg-[#DB4F40] px-6 py-10 text-lg text-white transition-colors duration-150 ease-in-out hover:bg-[#ed6f63] md:text-xl lg:text-2xl"
     >
-      <Link to="/todo" className="block flex items-center justify-center space-x-2 px-4 py-2">
+      <Link to="/coming-soon" className="block flex items-center justify-center space-x-2 px-4 py-2">
         {/* Shopping Cart Icon */}
         <CartIcon
           className="mr-2 h-12 w-12"

@@ -5,6 +5,8 @@ import RootLayout from './RootLayout';
 import Sponsor from './pages/Sponsor';
 import Download from './pages/Download';
 import Unsubscribe from './pages/Unsubscribe';
+import  ComingSoon from './pages/ComingSoon';
+
 
 const App: React.FC = () => {
     return (
@@ -15,6 +17,7 @@ const App: React.FC = () => {
                     <Route path="/sponsor" element={<Sponsor />} />
                     <Route path="/download/:token" element={<Download />} />
                     <Route path="/email/unsubscribe/:email" element={<Unsubscribe />} />
+                    <Route path="/coming-soon" element={<ComingSoon />} />
                 </Routes>
             </RootLayout>
         </Router>
