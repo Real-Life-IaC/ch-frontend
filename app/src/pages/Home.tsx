@@ -32,17 +32,16 @@ const Home: React.FC = () => {
       <div className="w-full mb-32 max-w-5xl mx-auto text-left space-y-6 mt-12 px-6 md:px-12">
         <h2 className="text-4xl font-bold mt-6 mb-6">What is this book about?</h2>
         <p className="text-base leading-8 text-justify">
-          This book will show you how to build a modern software platform in Python using AWS CDK. Even if you use a different language, you will find this book useful because I focus on architecture patterns rather than syntax details. The book is divided into three parts: Foundations, Real-Life Examples, and Best Practices.
+          This book will show you how to build a modern software platform in Python using AWS Cloud Development Kit (CDK). The content is divided into three parts: Foundations, Real-Life Examples, and Best Practices.
         </p>
         <p className="text-base leading-8 text-justify">
-          I begin with an introduction to Infrastructure as Code (IaC) CDK to help you quickly learn and refresh some concepts. Then, we dive into a series of real-life implementations of various services and components that you can use to build your software platform. All examples are complete and fully functional, as I have personally deployed them. Finally, I discuss some best practices that I have learned from experience and implemented in the examples. You&#39;ll learn:
+          Starting with an introduction to Infrastructure as Code (IaC) and CDK to help you quickly learn and refresh some concepts. Then, we dive into a series of real-life implementations of various services and components that you can use to build your own software platform. All examples are complete and fully functional, as I have personally deployed them. Finally, I discuss some best practices that I have learned from experience and implemented in the examples. You&#39;ll learn:
         </p>
         <ul className="list-disc list-inside text-base leading-7">
-          <li>AWS CDK and IaC concepts.</li>
-          <li>Cloud computing concepts and services, including the AWS Well Architected Framework.</li>
+          <li>AWS CDK, IaC and cloud computing concepts and services.</li>
           <li>How to build a cloud-native software platform using CDK.</li>
-          <li>Create constructs of code to build your cloud application.</li>
-          <li>How to create a microservices architecture with CDK.</li>
+          <li>How to create reusable infrastructure constructs to build your cloud platform.</li>
+          <li>How to deploy a microservices architecture with CDK.</li>
         </ul>
         <p className="text-base leading-8 text-justify">
           In most cases, I will not discuss the pros and cons of different approaches or try to convince you to use one tool over another. I assume that you are already familiar with the WHATs and WHYs, and you are reading this book to learn the HOWs. I will share my opinionated best practices, but keep in mind that opinions can change based on new evidence or different contexts. My opinions may also be completely wrong. Keep this in mind while reading.

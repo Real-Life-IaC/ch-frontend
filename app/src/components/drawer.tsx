@@ -57,7 +57,7 @@ export function GetPdfButton() {
               Learn Infrastructure as Code with AWS CDK.
             </DialogDescription>
             <DialogDescription className="mb-4">
-              Fill in the form to receive a link to download the FREE eBook in your email. The content is exactly the same you&#39;ll find in the paperback version. If you enjoy reading it, please consider <a href='todo' className='text-[#DB4F40] font-bold hover:underline'>buying a copy</a>, or <a href='/sponsor' className='text-[#DB4F40] font-bold hover:underline'>sponsoring</a> the project!
+              Fill in the form to receive a link to download the FREE eBook in your email. The content is exactly the same you&#39;ll find in the paperback version. If you enjoy reading it, please consider <a href='/coming-soon' className='text-[#DB4F40] font-bold hover:underline'>buying a copy</a>, or <a href='/sponsor' className='text-[#DB4F40] font-bold hover:underline'>sponsoring</a> the project!
             </DialogDescription>
           </DialogHeader>
           <ProfileForm className="mt-4 mb-4"/>
@@ -95,7 +95,7 @@ export function GetPdfButton() {
               Learn Infrastructure as Code with AWS CDK.
           </DrawerDescription>
           <DrawerDescription className="mb-2">
-            Fill in the form to receive a link to download the FREE eBook in your email. The content is exactly the same you&#39;ll find in the paperback version. If you enjoy reading it, please consider <a href='todo' className='text-[#DB4F40] font-bold hover:underline'>buying a copy</a>, or <a href='/sponsor' className='text-[#DB4F40] font-bold hover:underline'>sponsoring</a> the project!
+            Fill in the form to receive a link to download the FREE eBook in your email. The content is exactly the same you&#39;ll find in the paperback version. If you enjoy reading it, please consider <a href='/coming-soon' className='text-[#DB4F40] font-bold hover:underline'>buying a copy</a>, or <a href='/sponsor' className='text-[#DB4F40] font-bold hover:underline'>sponsoring</a> the project!
           </DrawerDescription>
         </DrawerHeader>
         <ProfileForm className="px-4 mt-2 mb-2" />
