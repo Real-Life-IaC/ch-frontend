@@ -76,12 +76,14 @@ class B1StaticSite(Construct):
 
         # Use the default Cloudfront WAF Web ACL only in production
         if stage == "production":
-            waf_web_acl_arn = (
-                ssm.StringParameter.value_for_string_parameter(
-                    scope=self,
-                    parameter_name="/firewall/cloudfront-web-acl/arn",
-                )
-            )
+            waf_web_acl_arn = None
+            # Disable WAF to save money
+            # waf_web_acl_arn = (
+            #     ssm.StringParameter.value_for_string_parameter(
+            #         scope=self,
+            #         parameter_name="/firewall/cloudfront-web-acl/arn",
+            #     )
+            # )
         else:
             waf_web_acl_arn = None
 

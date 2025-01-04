@@ -6,10 +6,12 @@ import Sponsor from './pages/Sponsor';
 import Download from './pages/Download';
 import Unsubscribe from './pages/Unsubscribe';
 import  ComingSoon from './pages/ComingSoon';
+import { CountryProvider } from './context/CountryContext';
 
 
 const App: React.FC = () => {
     return (
+        <CountryProvider>
         <Router>
             <RootLayout>
                 <Routes>
@@ -21,6 +23,7 @@ const App: React.FC = () => {
                 </Routes>
             </RootLayout>
         </Router>
+        </CountryProvider>
     );
 };
 

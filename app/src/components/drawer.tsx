@@ -28,6 +28,7 @@ import { Label } from '@/components/ui/label';
 import { downloadServiceApiUrl } from '@/Environment';
 import { DownloadIcon } from '@/components/icons';
 import { LoadingSpinner } from '@/components/ui/spinner';
+import { useCountry } from '../context/CountryContext';
 
 export function GetPdfButton() {
   const [open, setOpen] = React.useState(false);
@@ -123,6 +124,8 @@ function ProfileForm({ className }: React.ComponentProps<'form'>) {
   const [successMessage, setSuccessMessage] = useState('');
   const [apiError, setApiError] = useState('');
   const [loading, setLoading] = useState(false);
+  const { countryCode } = useCountry();
+
 
   // Email validation function
   const validateEmail = (inputEmail: string) => {
@@ -178,6 +181,7 @@ function ProfileForm({ className }: React.ComponentProps<'form'>) {
         body: JSON.stringify({
           name,
           email,
+          country_code: countryCode,
         }),
       });
 
